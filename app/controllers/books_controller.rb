@@ -3,10 +3,11 @@ class BooksController < ApplicationController
     @books = Book.all
     @book = Book.new
   end
-  
-  
+
+
   def create
     @book = Book.new(book_params)
+    @book.user_id = current_user.id
     if @book.save
     redirect_to book_path(@book.id), notice:"Book was successfully created."
     else
@@ -23,19 +24,19 @@ class BooksController < ApplicationController
     render "edit"
     end
   end
-  
+
 
   def show
   end
 
   def edit
   end
-  
-  
-  
+
+
+
   private
   def book_params
-    params.require(:book).permit(:title, :opinion)
+    params.require(:book).permit(:title, :opinion, :image_id)
   end
-  
+
 end
