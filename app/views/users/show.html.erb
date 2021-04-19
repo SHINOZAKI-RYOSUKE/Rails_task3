@@ -11,12 +11,21 @@
   <tbody>
    <% @books.each do |book| %>
    <tr>
-     <%# *ここ途中！　imageは％で囲わない！%>
-     <td><%= user.image_id %></td>
+       
+     <%# imageに関しては未完成%>  
+     <td><%= book.attachment_field :user.image_id %></td>
+     
      <td><%= book.title %></td>
      <td><%= book.opinion%></td>
    </tr>
    <% end %>
-   
+
   </tbody>
 </table>
+
+
+
+
+
+
+<%= render 'books/list', book: @book %>
