@@ -10,20 +10,40 @@
   </head>
 
   <body>
+   <a href="/">Bookers</a>
+    
     <% if user_signed_in? %>
+    
+    
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "log out", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "Home", root_path %>
       </li>
       <li>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "About", home_about_path%>
+      </li>
+      <li>
+        <%= link_to "sign up", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "log in", new_user_session_path %>
       </li>
     <% end %>
 
 
     <%= yield %>
+    
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-aute">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

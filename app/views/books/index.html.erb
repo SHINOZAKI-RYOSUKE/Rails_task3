@@ -11,7 +11,10 @@
   <tbody>
    <% @books.each do |book| %>
    <tr>
-     
+     <%#ここに ❶userプロフィール画像（❷リンク化）%>  
+     <%# *ここ途中！　imageは％で囲わない！%>
+     <%#先にuser_info　を作成する！%>
+     <td><%= book.user.image_id %></td>
      <td><%= book.title %></td><%#タイトルをリンク化%>
      <td><%= book.opinion %></td>
    </tr>
@@ -19,6 +22,8 @@
    
   </tbody>
 </table>
+
+
 
 
 
