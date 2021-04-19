@@ -9,12 +9,12 @@
   </thead>
 
   <tbody>
-   <% @user.each do |user| %>
+   <% @books.each do |book| %>
    <tr>
      <%# *ここ途中！　imageは％で囲わない！%>
      <td><%= user.image_id %></td>
-     <td><%= user.book.title %></td>
-     <td><%= user.book.opinion%></td>
+     <td><%= book.title %></td>
+     <td><%= book.opinion%></td>
    </tr>
    <% end %>
    
