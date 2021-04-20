@@ -1,7 +1,10 @@
 class BooksController < ApplicationController
+  
   def index
     @books = Book.all
     @book = Book.new
+    
+    @user = current_user
   end
 
 
@@ -16,6 +19,7 @@ class BooksController < ApplicationController
     end
   end
 
+
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
@@ -29,11 +33,15 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @book_new = Book.new
+    
+    @user = User.find(params[:id])
   end
+  
 
   def edit
     @book = Book.find(params[:id])
   end
+
 
   def destroy
     book = Book.find(params[:id])  # データ（レコード）を1件取得

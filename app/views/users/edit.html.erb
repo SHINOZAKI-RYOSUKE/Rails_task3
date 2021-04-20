@@ -6,7 +6,12 @@
   <%= f.text_field :name %>
 
   <h4>Image</h4>
-  <%= f.text_field :image %>
+  <%#imageは『text』でいいのか？%>
+  <%#ない場合は『イメージ画像』を表示するコードも書く。%>
+  <%# <%= f.text_field :image %>
+  
+  <h4>Introduction</h4>
+  <%= f.text_area :introduction %>
 
   <%= f.submit 'Update User' %>
 

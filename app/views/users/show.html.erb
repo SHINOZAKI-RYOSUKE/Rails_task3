@@ -11,10 +11,8 @@
   <tbody>
    <% @books.each do |book| %>
    <tr>
-       
-     <%# imageに関しては未完成%>  
-     <td><%= book.attachment_field :user.image_id %></td>
-     
+
+     <%# imageに関しては未完成%>
      <td><%= book.title %></td>
      <td><%= book.opinion%></td>
    </tr>
@@ -26,6 +24,6 @@
 
 
 
+<%= render 'users/info', user: @user %>
 
-
-<%= render 'books/list', book: @book %>
+<%= render 'books/new', book: @book %>
