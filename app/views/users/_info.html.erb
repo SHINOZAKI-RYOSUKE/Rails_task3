@@ -1,15 +1,10 @@
 <h1>User info</h1>
- <%#ここに画像%>
- <table crass="table">
-   <tbody>
-     <tr></tr>
-     <tr>
-      <th>name</th>
-      <th><%= user.name %></th>
-     </tr>
-     <tr>
-       <th>introduction</th>
-       <th><%= user.introduction%></th>
-     </tr>
-   </tbody>
- </table>
+ <%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.jpeg" %>
+
+ <div>name</div>
+ <div><%= user.name %></div>
+
+ <div>introduction</div>
+ <div><%= user.introduction%></div>
+
+ <div><%= link_to "edit",edit_user_path(user.id) %></div>

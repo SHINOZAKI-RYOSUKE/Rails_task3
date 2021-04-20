@@ -11,8 +11,7 @@
   <tbody>
    <% @books.each do |book| %>
    <tr>
-
-     <%# imageに関しては未完成%>
+     <td><%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.jpeg" %></td>
      <td><%= book.title %></td>
      <td><%= book.opinion%></td>
    </tr>
@@ -20,6 +19,7 @@
 
   </tbody>
 </table>
+
 
 
 
