@@ -1,7 +1,12 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1>Book detail</h1>
 
-
+   <% @books.each do |book| %>
+   
+     <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.jpeg" %>
+     <%= book.title %>
+     <%= book.opinion%>
+   
+   <% end %>
 
 
 
