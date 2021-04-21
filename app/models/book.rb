@@ -1,6 +1,8 @@
 class Book < ApplicationRecord
   
   belongs_to :user
-  # attachment :image をuser_info　が完成したら実装
+  
+  validates :title, presence: true
+  validates :opinion, presence: true
   
 end
