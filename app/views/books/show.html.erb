@@ -1,12 +1,24 @@
 <h1>Book detail</h1>
 
-   <% @books.each do |book| %>
-   
-     <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.jpeg" %>
-     <%= book.title %>
-     <%= book.opinion%>
-   
-   <% end %>
+    <%= link_to user_path(@book.user), class: 'link' do %>
+     <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.jpeg" %>
+     <%= @book.user.name %>
+    <% end %>
+
+    <%= link_to book_path(@book), class: 'link' do %>
+     <%= @book.title %>
+    <% end %>
+
+     <%= @book.opinion %>
+
+
+     <% if current_user.id == @book.user_id %>
+      <%= link_to "edit", edit_book_path(@book.id) %>
+      <%= link_to "destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
+     <% end %>
+
+
+
 
 
 

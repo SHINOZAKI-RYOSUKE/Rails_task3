@@ -1,16 +1,19 @@
 class UsersController < ApplicationController
+   before_action :authenticate_user!
 
   def index
     @users = User.all
-    @book = Book.new
+
     @user = current_user
+    @book = Book.new
   end
 
 
   def show
     @user = User.find(params[:id])
-    @books = @user.books
+    @books = @user.books #『@user.books』がアソシエーションでできたこと。
 
+    #users/showのinfo定義は『show１行目で定義済み』
     @book = Book.new
   end
 
@@ -24,16 +27,16 @@ class UsersController < ApplicationController
 
 
   def update
-    @user = current_user
+    @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to user_path(current_user.id)
+    redirect_to user_path(@user.id)
   end
 
 
 
   private
   def user_params
-    params.require(:user).permit(:name, :introduction, :image_id)
+    params.require(:user).permit(:name, :introduction, :profile_image_id)
   end
 
 end
