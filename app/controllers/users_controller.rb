@@ -11,9 +11,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @books = @user.books #『@user.books』がアソシエーションでできたこと。
+    @books = @user.books
 
-    #users/showのinfo定義は『show１行目で定義済み』
     @book = Book.new
   end
 
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if@user.update(user_params)
-    redirect_to user_path(@user.id)
+    redirect_to user_path(@user.id), notice:"You have updated user successfully."
     else
     render "edit"
     end
