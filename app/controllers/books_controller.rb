@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
  before_action :authenticate_user!
- 
+
   def index
     @books = Book.all
 
@@ -42,11 +42,19 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
-    if @book != current_user
+    if @book.user_id != current_user.id
     redirect_to books_path
     end
   end
 
+  def update
+    @book = Book.find(params[:id])
+    if@book.update(book_params)
+    redirect_to book_path(@book.id)
+    else
+    render "edit"
+    end
+  end
 
   def destroy
     book = Book.find(params[:id])  # データ（レコード）を1件取得

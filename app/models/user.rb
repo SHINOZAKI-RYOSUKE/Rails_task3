@@ -12,8 +12,8 @@ class User < ApplicationRecord
    presence: true,
    uniqueness: true,
    length: { minimum: 2, maximum: 20 }
-   
+  
   validates :introduction,
-   lenght: { maximum: 50 }
+   length: { maximum: 50 }
   
 end
