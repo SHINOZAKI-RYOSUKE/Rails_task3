@@ -2,7 +2,7 @@
 
 
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
+  <%= @book.errors.count %>errors prohibited this obj from being saved:
   <% @book.errors.full_messages.each do |message| %>
     <%= message %>
   <% end %>
@@ -14,7 +14,7 @@
   <%= new.text_field :title %>
 
   <h4>Opinion</h4>
-  <%= new.text_area :opinion %>
+  <%= new.text_area :body %>
 
   <%= new.submit 'Create Book' %>
 
