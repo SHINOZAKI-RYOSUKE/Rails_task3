@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  
+
   <head>
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
@@ -12,7 +12,7 @@
 
 
   <body>
-    
+
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-daek">
         <div class="container">
@@ -27,36 +27,84 @@
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-              
-              <%# フォントオーサムのアイコンも一緒にlink化 %>
-              
+
+
              <% if user_signed_in? %>
-              <li><%= link_to "Home", user_path(current_user.id) %></li>
-              <li><%= link_to "Users", users_path %></li>
-              <li><%= link_to "Books", books_path %></li>
-              <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+              <li>
+              <%= link_to user_path(current_user.id) do %>
+                <i class="fas fa-home"></i>
+                Home
+              <% end %>
+              </li>
+
+              <li>
+              <%= link_to users_path do %>
+                <i class="fas fa-users"></i>
+                Users
+              <% end %>
+              </li>
+
+              <li>
+              <%= link_to books_path do %>
+                <i class="fas fa-book-open"></i>
+                Books
+              <% end %>
+              </li>
+
+              <li>
+              <%= link_to destroy_user_session_path, method: :delete do  %>
+                <i class="fas fa-sign-out-alt"></i>
+                logout
+              <% end %>
+              </li>
+
              <% else %>
-              <li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "About", home_about_path%></li>
-              <li><%= link_to "sign up", new_user_registration_path %></li>
-              <li><%= link_to "login", new_user_session_path %></li>
+
+              <li>
+                <%= link_to root_path do %>
+                <i class="fas fa-home"></i>
+                Home
+              <% end %>
+              </li>
+
+              <li>
+              <%= link_to home_about_path do %>
+                <i class="fas fa-link"></i>
+                About
+              <% end %>
+              </li>
+
+              <li>
+              <%= link_to new_user_registration_path do %>
+                <i class="fas fa-user-plus"></i>
+                sign up
+              <% end %>
+              </li>
+
+              <li>
+              <%= link_to new_user_session_path do %>
+                <i class="fas fa-sign-in-alt"></i>
+                login
+              <% end %>
+              </li>
+
              <% end %>
-             
-              <%# ここまで %>
-             
+
+
             </ul>
           </div>
         </div>
       </nav>
     </header>
-    
+
     <p id="notice">
      <%= notice %>
     </p>
 
 
-
-    <%= yield %>
+<main class="container">
+  <%= yield %>
+</main>
 
 
 
@@ -69,7 +117,10 @@
         </div>
       </div>
     </footer>
-    
+
   </body>
-  
+
 </html>
+
+
+

@@ -1,10 +1,8 @@
 <h2>User info</h2>
 
-  <%#タグの囲い方がわからない。%>
   <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no-image.jpeg" %>
   <table class="table">
     <tbody>
-      <tr></tr>
       <tr>
         <th>name</th>
         <th><%= user.name %></th>
@@ -12,12 +10,12 @@
       <tr>
         <th>introduction</th>
         <th><%= user.introduction%></th>
-        <th></th>
       </tr>
     </tbody>
   </table>
 
   <div class="row">
-    <%#　do end で囲うアイコン指定だとエラーが出る。保留　%>
-    <%= link_to "edit",edit_user_path(user.id) %>
+    <%= link_to edit_user_path(user.id), class:"btn btn-outline-secondary w-100" do %>
+    <i class="fas fa-user-cog"></i>
+    <% end %>
   </div>
